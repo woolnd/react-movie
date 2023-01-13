@@ -2,6 +2,7 @@ import {useState, useEffect} from "react";
 import Movie from "./components/Movie";
 import Home from "./routes/Home";
 import Detail from "./routes/Detail";
+import "./css/App.css"
 
 import {
     BrowserRouter as Router,

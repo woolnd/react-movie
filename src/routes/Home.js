@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react";
 import Movie from "../components/Movie";
+import "../css/Home.css"
 
-function Home(){
+function Home() {
     const [loading, setLoading] = useState(true);
     const [movies, setMoives] = useState([]);
     const getMoives = async () => {
@@ -15,15 +16,17 @@ function Home(){
     }, []);
 
     return (
-        <div>
-            {loading ? (<h1>Loading...</h1>) :
-                (<div>
+        <section className="container">
+            {loading
+                ? <div className="loadingWrapper"><h1 className="loading">Loading....</h1></div>
+                : <div className="movies">
                         {movies.map((movie) => (
-                            <Movie key={movie.id} id={movie.id} coverImg={movie.medium_cover_image} title={movie.title} summary={movie.summary} genres={movie.genres} movie={movie}/>
+                            <Movie key={movie.id} id={movie.id} year={movie.year} coverImg={movie.medium_cover_image}
+                                   title={movie.title} summary={movie.summary} genres={movie.genres}/>
                         ))}
                     </div>
-                )}
-        </div>
+            }
+        </section>
     );
 }
 
